@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auntie Cafe — Cantonese Restaurant Brussels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:     #0F0B08;
+      --stone:   #1E1915;
+      --lacquer: #7B2D1E;
+      --char:    #C4592A;
+      --neon:    #C9358A;
+      --rice:    #F0E8D0;
+      --bone:    #A09080;
+      --warm:    #FAF6EE;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--ink); overflow-x: hidden; background: var(--warm); }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.6rem 3.5rem;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif; font-style: italic; font-size: 1.3rem;
+      color: var(--rice); display: flex; align-items: center; gap: 0.6rem;
+    }
+    .nav-logo-zh { font-family: 'Zhi Mang Xing', cursive; font-style: normal; font-size: 1rem; opacity: 0.55; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; color: rgba(240,232,208,0.65); letter-spacing: 0.06em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rice); }
+    .nav-cta {
+      background: var(--char); color: var(--rice);
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.65rem 1.5rem; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--lacquer); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--ink);
+      min-height: 92vh;
+      display: flex; flex-direction: column; align-items: center;
+      padding-top: 8.5rem;
+      position: relative; overflow: visible;
+    }
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute; top: 0;
+      width: 220px; height: 380px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'%3E%3Cellipse cx='100' cy='200' rx='60' ry='180' fill='%23201208' transform='rotate(-20 100 200)'/%3E%3Cellipse cx='60' cy='250' rx='35' ry='140' fill='%231A0E07' transform='rotate(-35 60 250)'/%3E%3Cellipse cx='140' cy='160' rx='40' ry='150' fill='%23170D06' transform='rotate(-10 140 160)'/%3E%3C/svg%3E");
+      background-size: contain; background-repeat: no-repeat;
+      pointer-events: none; opacity: 0.85;
+    }
+    .hero::before { left: -30px; }
+    .hero::after  { right: -30px; transform: scaleX(-1); }
+
+    .hero-content { text-align: center; max-width: 680px; padding: 0 2rem; position: relative; z-index: 2; }
+    .hero-sub-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(240,232,208,0.4); margin-bottom: 1.3rem; }
+    .hero-title {
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(2.4rem, 4.8vw, 4rem); color: var(--rice);
+      line-height: 1.22; margin-bottom: 1rem;
+    }
+    .hero-tagline { font-size: 0.82rem; color: rgba(240,232,208,0.45); margin-bottom: 1.8rem; line-height: 1.7; }
+    .hero-btn {
+      display: inline-block;
+      height: 3rem; width: max-content;
+      border-radius: 2px; border: none;
+      background: linear-gradient(325deg, #7B2D1E 0%, #E8713A 55%, #7B2D1E 90%);
+      background-size: 280% auto;
+      background-position: left center;
+      padding: 0 1.5rem;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--rice);
+      box-shadow: 0px 0px 20px rgba(196,89,42,0.5), 0px 5px 5px -1px rgba(123,45,30,0.25), inset 4px 4px 8px rgba(240,160,80,0.3), inset -4px -4px 8px rgba(100,30,15,0.35);
+      transition: background-position 700ms;
+      line-height: 3rem;
+    }
+    .hero-btn:hover { background-position: right top; }
+    .hero-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--char), 0 0 0 4px #fff; }
+
+    .hero-plate {
+      position: relative; z-index: 3;
+      margin-top: 2.5rem; margin-bottom: -180px;
+      width: 540px; height: 540px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.55);
+    }
+    .hero-plate img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+      filter: brightness(1.12) contrast(1.15) saturate(1.3);
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust {
+      background: var(--ink);
+      padding: 210px 3.5rem 4rem;
+      display: flex; justify-content: center; align-items: center; gap: 3.5rem; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.74rem; color: rgba(240,232,208,0.28); letter-spacing: 0.06em; }
+
+    /* ─── IMMERSE ─── */
+    .immerse { background: var(--rice); padding: 16rem 3.5rem 7rem; }
+    .immerse-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .immerse-circle-wrap { display: flex; justify-content: center; }
+    .immerse-circle {
+      width: 400px; height: 400px; border-radius: 50%;
+      overflow: hidden; background: #0d0907;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28); flex-shrink: 0;
+    }
+    .immerse-circle img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(1.1) contrast(1.15) saturate(1.3);
+    }
+
+    .eyebrow { font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--char); font-weight: 500; margin-bottom: 0.9rem; }
+    .immerse-text h2 {
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem); color: var(--ink); line-height: 1.3; margin-bottom: 1.3rem;
+    }
+    .immerse-text p { font-size: 0.85rem; color: var(--bone); line-height: 1.85; margin-bottom: 0.8rem; max-width: 440px; }
+    .btn-row { display: flex; gap: 1rem; margin-top: 1.8rem; flex-wrap: wrap; align-items: center; }
+    .btn-dark {
+      background: var(--ink); color: var(--rice);
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.8rem 1.8rem; transition: background 0.2s;
+    }
+    .btn-dark:hover { background: var(--stone); }
+    .btn-phone {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; color: var(--ink); opacity: 0.55; transition: opacity 0.2s;
+    }
+    .btn-phone:hover { opacity: 1; }
+
+    /* ─── CATEGORIES ─── */
+    .categories { background: var(--rice); padding: 1rem 3.5rem 6rem; position: relative; overflow: hidden; }
+    .categories-header { text-align: center; margin-bottom: 3rem; }
+    .categories-header h2 {
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem); color: var(--ink); line-height: 1.3;
+    }
+    .cat-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; position: relative; z-index: 1; }
+    .cat-card {
+      display: block;
+      background: var(--warm); text-align: center; padding: 2rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(15,11,8,0.08); transition: transform 0.3s, box-shadow 0.3s;
+      color: inherit; text-decoration: none; cursor: pointer;
+    }
+    .cat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(15,11,8,0.14); }
+    .cat-img {
+      width: 120px; height: 120px; border-radius: 50%;
+      overflow: hidden; background: #120A05;
+      margin: 0 auto 1.3rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .cat-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(1.08) contrast(1.12) saturate(1.25);
+    }
+    .cat-tag { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--char); margin-bottom: 0.35rem; }
+    .cat-name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+    .cat-count { font-size: 0.72rem; color: var(--bone); }
+
+    .watermark {
+      position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%);
+      white-space: nowrap;
+      font-family: 'Lora', serif; font-size: clamp(5rem, 11vw, 9rem);
+      font-weight: 600; letter-spacing: -0.02em;
+      color: rgba(15,11,8,0.04);
+      pointer-events: none; z-index: 0; line-height: 1;
+    }
+
+    /* ─── MENU ─── */
+    .menu-section { padding: 6rem 3.5rem; }
+    .menu-section.warm  { background: var(--warm); }
+    .menu-section.rice  { background: var(--rice); }
+    .menu-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .menu-text h2 {
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem); color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .menu-intro { font-size: 0.8rem; color: var(--bone); margin-bottom: 1.8rem; }
+    .dish-list { list-style: none; }
+    .dish { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.95rem 0; border-bottom: 1px solid rgba(15,11,8,0.08); }
+    .dish:first-child { border-top: 1px solid rgba(15,11,8,0.08); }
+    .dish-name { font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.15rem; }
+    .dish-desc { font-size: 0.72rem; color: var(--bone); }
+    .dish-price { font-family: 'Lora', serif; font-size: 0.95rem; color: var(--char); font-weight: 500; white-space: nowrap; }
+    .menu-photo { position: relative; }
+    .menu-photo img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      filter: brightness(1.08) contrast(1.12) saturate(1.2);
+    }
+    .menu-tag {
+      position: absolute; bottom: 1.2rem; left: 1.2rem;
+      background: var(--char); color: var(--rice);
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+    }
+
+    /* ─── SET MENUS ─── */
+    .set-menus { background: var(--rice); padding: 6rem 3.5rem; }
+    .set-header { text-align: center; margin-bottom: 3rem; }
+    .set-header h2 { font-family: 'Lora', serif; font-style: italic; font-weight: 400; font-size: clamp(1.9rem, 3vw, 2.6rem); color: var(--ink); }
+    .set-grid { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .set-card { padding: 2.5rem 2rem; text-align: center; }
+    .set-card.light { background: var(--warm); box-shadow: 0 4px 20px rgba(15,11,8,0.07); }
+    .set-card.dark  { background: var(--stone); }
+    .set-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .set-card.light .set-label { color: var(--char); }
+    .set-card.dark  .set-label { color: rgba(240,232,208,0.4); }
+    .set-name { font-family: 'Lora', serif; font-style: italic; font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .set-card.light .set-name { color: var(--ink); }
+    .set-card.dark  .set-name { color: var(--rice); }
+    .set-price { font-family: 'Lora', serif; font-size: 2.2rem; color: var(--char); margin: 1rem 0; line-height: 1; }
+    .set-desc { font-size: 0.78rem; line-height: 1.75; }
+    .set-card.light .set-desc { color: var(--bone); }
+    .set-card.dark  .set-desc { color: rgba(240,232,208,0.4); }
+
+    /* ─── CHEF ─── */
+    .chef { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+    .chef-left {
+      background: var(--stone);
+      padding: 5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .chef-eyebrow { font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240,232,208,0.3); margin-bottom: 1.5rem; }
+    .chef-quote {
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem); color: var(--rice);
+      line-height: 1.6; margin-bottom: 2rem;
+    }
+    .chef-attr { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(240,232,208,0.3); }
+    .chef-attr span { display: block; color: var(--char); margin-bottom: 0.2rem; font-size: 0.78rem; }
+    .chef-right { overflow: hidden; }
+    .chef-right img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+      filter: brightness(0.92) contrast(1.1) saturate(1.1);
+    }
+
+    /* ─── BLOG ─── */
+    .blog { background: var(--rice); padding: 7rem 3.5rem 0; }
+    .blog-header { max-width: 1100px; margin: 0 auto 2.5rem; text-align: center; }
+    .blog-header h2 { font-family: 'Lora', serif; font-style: italic; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink); }
+    .blog-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
+    .blog-card-img {
+      width: 100%; height: 200px; object-fit: cover; margin-bottom: 1rem;
+      filter: brightness(1.06) contrast(1.1) saturate(1.2);
+    }
+    .blog-date { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--char); margin-bottom: 0.4rem; }
+    .blog-title { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 500; color: var(--ink); line-height: 1.45; margin-bottom: 0.4rem; }
+    .blog-more { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--char); font-weight: 500; }
+    .blog-more:hover { color: var(--lacquer); }
+
+    .bowl-wrap { text-align: center; position: relative; z-index: 2; margin-bottom: -220px; }
+    .bowl-wrap img {
+      width: 480px; max-width: 90%; margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      filter: brightness(1.1) contrast(1.15) saturate(1.3);
+    }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--ink); padding-top: 260px; padding-bottom: 0; }
+    .footer-tagline-wrap {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: center;
+      padding: 4rem 3.5rem 3rem;
+      border-bottom: 1px solid rgba(240,232,208,0.07);
+    }
+    .footer-tagline {
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(1.4rem, 2.5vw, 2rem); color: var(--rice); line-height: 1.4;
+    }
+    .footer-info { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.78rem; color: rgba(240,232,208,0.38); line-height: 1.7; }
+    .footer-info svg { flex-shrink: 0; margin-top: 0.2rem; }
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3.5rem;
+    }
+    .footer-copy { font-size: 0.7rem; color: rgba(240,232,208,0.2); }
+    .footer-logo { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; color: rgba(240,232,208,0.4); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.68rem; color: rgba(240,232,208,0.2); letter-spacing: 0.06em; }
+    .footer-links a:hover { color: rgba(240,232,208,0.6); }
+
+    /* ─── LANGUAGE SWITCHER ─── */
+    .lang-switcher { display: flex; gap: 2px; align-items: center; margin-left: 0.8rem; }
+    .lang-btn {
+      background: transparent; border: 1px solid rgba(240,232,208,0.25);
+      color: rgba(240,232,208,0.5); font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em;
+      padding: 0.38rem 0.55rem; cursor: pointer; transition: all 0.2s;
+    }
+    .lang-btn:first-child { border-radius: 2px 0 0 2px; }
+    .lang-btn:last-child  { border-radius: 0 2px 2px 0; }
+    .lang-btn:hover { color: var(--rice); border-color: rgba(240,232,208,0.5); }
+    .lang-btn.active { background: var(--char); border-color: var(--char); color: var(--rice); }
+
+    /* ─── FULL MENU ─── */
+    .full-menu { background: var(--stone); padding: 6rem 3.5rem; }
+    .fm-inner { max-width: 1100px; margin: 0 auto; }
+    .fm-head { text-align: center; margin-bottom: 3rem; }
+    .fm-head h2 { font-family: 'Lora', serif; font-style: italic; font-weight: 400; font-size: clamp(1.9rem, 3.2vw, 2.7rem); color: var(--rice); }
+    .fm-head .eyebrow { color: rgba(240,232,208,0.4); }
+    .fm-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 0; margin-bottom: 2.5rem; border-bottom: 1px solid rgba(240,232,208,0.1); }
+    .fm-tabs::-webkit-scrollbar { display: none; }
+    .fm-tab { background: transparent; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; color: rgba(240,232,208,0.35); font-family: 'DM Sans', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.8rem 1.3rem; cursor: pointer; transition: all 0.2s; }
+    .fm-tab:hover { color: var(--rice); }
+    .fm-tab.active { color: var(--char); border-bottom-color: var(--char); }
+    .fm-panel { display: none; }
+    .fm-panel.active { display: block; }
+    .fm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
+    .fm-dish { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(240,232,208,0.06); }
+    .fm-num { font-size: 0.6rem; color: rgba(240,232,208,0.2); margin-right: 0.3rem; }
+    .fm-name { font-size: 0.83rem; font-weight: 400; color: rgba(240,232,208,0.85); }
+    .fm-zh { font-size: 0.64rem; color: rgba(240,232,208,0.2); margin-left: 0.3rem; }
+    .fm-price { font-family: 'Lora', serif; font-size: 0.88rem; color: var(--char); white-space: nowrap; flex-shrink: 0; }
+
+    /* ─── NEON ACCENT — used once ─── */
+    .neon-line {
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--neon);
+    }
+
+    /* ─── CONTACT CTA ─── */
+    .contact-cta { background: var(--ink); text-align: center; padding: 5rem 3.5rem 4rem; }
+    .contact-cta-eyebrow { font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(240,232,208,0.25); margin-bottom: 1.5rem; }
+    .contact-phone-wrap { display: inline-block; position: relative; }
+    .contact-phone {
+      display: block;
+      font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(2.8rem, 6vw, 4.4rem);
+      color: var(--rice); text-decoration: none; letter-spacing: 0.03em;
+      transition: color 0.3s;
+    }
+    .contact-phone:hover { color: var(--char); }
+    .contact-phone-glow {
+      position: absolute; inset: -0.5rem -1.2rem;
+      border-radius: 6px; pointer-events: none;
+      animation: phone-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes phone-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(196,89,42,0); }
+      50%       { box-shadow: 0 0 28px 10px rgba(196,89,42,0.18), 0 0 0 3px rgba(196,89,42,0.12); }
+    }
+    .contact-cta-sub { font-size: 0.74rem; color: rgba(240,232,208,0.22); margin-top: 1.2rem; letter-spacing: 0.08em; }
+    .contact-cta-addr { font-size: 0.8rem; color: rgba(240,232,208,0.35); margin-top: 0.4rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-plate { width: 300px; height: 300px; margin-bottom: -110px; }
+      .immerse { padding: 12rem 1.5rem 5rem; }
+      .immerse-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .immerse-circle { width: 280px; height: 280px; }
+      .categories { padding: 1rem 1.5rem 5rem; }
+      .cat-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .full-menu { padding: 5rem 1.5rem; }
+      .fm-grid { grid-template-columns: 1fr; }
+      .fm-tab { padding: 0.7rem 0.9rem; font-size: 0.62rem; }
+      .menu-section { padding: 5rem 1.5rem; }
+      .menu-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .set-menus { padding: 5rem 1.5rem; }
+      .set-grid { grid-template-columns: 1fr; max-width: 360px; }
+      .chef { grid-template-columns: 1fr; }
+      .chef-right { height: 320px; }
+      .blog { padding: 5rem 1.5rem 0; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .bowl-wrap img { width: 280px; }
+      .bowl-wrap { margin-bottom: -140px; }
+      footer { padding-top: 170px; }
+      .footer-tagline-wrap { grid-template-columns: 1fr; padding: 3rem 1.5rem 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; padding: 1.2rem 1.5rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Auntie Cafe <span class="nav-logo-zh">阿姨小廚</span></a>
+  <ul class="nav-links">
+    <li><a href="#" id="t-nav-home">Home</a></li>
+    <li><a href="#about" id="t-nav-about">About</a></li>
+    <li><a href="#menu" id="t-nav-menu">Menu</a></li>
+    <li><a href="#contact" id="t-nav-contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:0.6rem;">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('nl')">NL</button>
+    </div>
+    <a href="#full-menu" class="nav-cta" id="t-nav-cta">Menu</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-sub-label" id="t-hero-label">Authentic Cantonese · Brussels · Since 2010</p>
+    <h1 class="hero-title" id="t-hero-title">Delicious food &amp;<br>wonderful eating experience</h1>
+    <p class="hero-tagline" id="t-hero-tagline">We serve real Cantonese &amp; home-style food. Rue Grétry 25, Brussels.</p>
+    <a href="#contact" class="hero-btn" id="t-hero-btn">Reserve a table</a>
+  </div>
+  <div class="hero-plate">
+    <img src="images/maps-9.jpg" alt="Roasted duck and char siu platter" />
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span id="t-trust-rating">4.2 on Google</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <span id="t-trust-reviews">514 Guest Reviews</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span id="t-trust-hours">Open Daily · Closed Thursday</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span id="t-trust-service">Dine-in &amp; Takeaway</span>
+  </div>
+</div>
+
+<!-- IMMERSE -->
+<section class="immerse" id="about">
+  <div class="immerse-inner">
+    <div class="immerse-circle-wrap">
+      <div class="immerse-circle">
+        <img src="images/maps-3.jpg" alt="Cantonese dish" />
+      </div>
+    </div>
+    <div class="immerse-text">
+      <p class="eyebrow" id="t-imm-eyebrow">Authentic Cantonese Food &amp; Tradition</p>
+      <h2 id="t-imm-title">Immerse yourself in a<br><span class="neon-line" id="t-imm-neon">Cantonese</span> experience.</h2>
+      <p id="t-imm-p1">The art of roasted duck and char siu, made daily with care, tradition, and flavours that cannot be mistaken for anything else.</p>
+      <p id="t-imm-p2">Cantonese roast meats perfected with patience, real recipes and an eye for detail. Taste the perfect harmony.</p>
+      <div class="btn-row">
+        <a href="#menu" class="btn-dark" id="t-imm-btn">Food menu</a>
+        <a href="tel:+3222231424" class="btn-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          02 223 14 24
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="categories-header">
+    <p class="eyebrow" id="t-cat-eyebrow">Popular Category</p>
+    <h2 id="t-cat-title">What would you like<br>to eat today?</h2>
+  </div>
+  <div class="cat-grid">
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('soups')">
+      <div class="cat-img"><img src="images/maps-7.jpg" alt="Soups" /></div>
+      <p class="cat-tag" id="t-cat1-tag">Potages / 汤面类</p>
+      <h3 class="cat-name" id="t-cat1-name">Soups</h3>
+      <p class="cat-count" id="t-cat1-count">17 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('starters')">
+      <div class="cat-img"><img src="images/maps-3.jpg" alt="Starters and Dim Sum" /></div>
+      <p class="cat-tag" id="t-cat2-tag">Entrées / 头盘类</p>
+      <h3 class="cat-name" id="t-cat2-name">Starters &amp; Dim Sum</h3>
+      <p class="cat-count" id="t-cat2-count">26 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('poultry')">
+      <div class="cat-img"><img src="images/maps-15.jpg" alt="Chicken and Duck" /></div>
+      <p class="cat-tag" id="t-cat3-tag">Poulet &amp; Canard / 鸡鸭类</p>
+      <h3 class="cat-name" id="t-cat3-name">Chicken &amp; Duck</h3>
+      <p class="cat-count" id="t-cat3-count">10 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('meat')">
+      <div class="cat-img"><img src="images/maps-14.jpg" alt="Pork and Beef" /></div>
+      <p class="cat-tag" id="t-cat4-tag">Porc &amp; Bœuf / 猪牛肉类</p>
+      <h3 class="cat-name" id="t-cat4-name">Pork &amp; Beef</h3>
+      <p class="cat-count" id="t-cat4-count">12 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('seafood')">
+      <div class="cat-img"><img src="images/maps-19.jpg" alt="Seafood" /></div>
+      <p class="cat-tag" id="t-cat5-tag">Fruits de Mer / 海鲜类</p>
+      <h3 class="cat-name" id="t-cat5-name">Seafood</h3>
+      <p class="cat-count" id="t-cat5-count">9 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('rice')">
+      <div class="cat-img"><img src="images/maps-22.jpg" alt="Rice and Noodles" /></div>
+      <p class="cat-tag" id="t-cat6-tag">Riz &amp; Nouilles / 饭面类</p>
+      <h3 class="cat-name" id="t-cat6-name">Rice &amp; Noodles</h3>
+      <p class="cat-count" id="t-cat6-count">18 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('pots')">
+      <div class="cat-img"><img src="images/maps-1.jpg" alt="Pots and Vegetables" /></div>
+      <p class="cat-tag" id="t-cat7-tag">Marmites &amp; Légumes / 煲类</p>
+      <h3 class="cat-name" id="t-cat7-name">Pots &amp; Vegetables</h3>
+      <p class="cat-count" id="t-cat7-count">19 Items</p>
+    </a>
+    <a href="#full-menu" class="cat-card" onclick="return openCategory('auntie')">
+      <div class="cat-img"><img src="images/maps-2.jpg" alt="Auntie Specialties" /></div>
+      <p class="cat-tag" id="t-cat8-tag">Spécialités / 姑妈特选</p>
+      <h3 class="cat-name" id="t-cat8-name">Auntie's Specialties</h3>
+      <p class="cat-count" id="t-cat8-count">18 Items</p>
+    </a>
+  </div>
+  <div class="watermark" aria-hidden="true">delicious food and wonderful eating experience</div>
+</section>
+
+<!-- MENU 1 -->
+<section class="menu-section warm" id="menu">
+  <div class="menu-inner">
+    <div class="menu-text">
+      <p class="eyebrow" id="t-m1-eyebrow">Featured Menu</p>
+      <h2 id="t-m1-title">Famous roasted<br>meats</h2>
+      <p class="menu-intro" id="t-m1-intro">Roasted in-house each day, carved to order with house sauce.</p>
+      <ul class="dish-list">
+        <li class="dish">
+          <div><p class="dish-name" id="t-d1-name">Roasted Duck &amp; Crispy Pork</p><p class="dish-desc" id="t-d1-desc">Lacquered duck, crackling pork belly, house sauce</p></div>
+          <span class="dish-price">€13.50</span>
+        </li>
+        <li class="dish">
+          <div><p class="dish-name" id="t-d2-name">Honey Roasted Pork (Char Siu)</p><p class="dish-desc" id="t-d2-desc">Cantonese BBQ pork, caramelised glaze</p></div>
+          <span class="dish-price">€11.00</span>
+        </li>
+        <li class="dish">
+          <div><p class="dish-name" id="t-d3-name">Grilled Radish Cake</p><p class="dish-desc" id="t-d3-desc">Pan-fried, soy dipping sauce</p></div>
+          <span class="dish-price">€7.50</span>
+        </li>
+        <li class="dish">
+          <div><p class="dish-name" id="t-d4-name">Peking Duck</p><p class="dish-desc" id="t-d4-desc">Pancakes, spring onion, cucumber, hoisin</p></div>
+          <span class="dish-price">€18.00</span>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-photo">
+      <img src="images/maps-24.jpg" alt="Roasted duck and char siu" />
+      <span class="menu-tag">House Speciality</span>
+    </div>
+  </div>
+</section>
+
+<!-- MENU 2 -->
+<section class="menu-section rice">
+  <div class="menu-inner" style="direction:rtl;">
+    <div class="menu-text" style="direction:ltr;">
+      <p class="eyebrow" id="t-m2-eyebrow">Sea Food</p>
+      <h2 id="t-m2-title">Sea fish &amp; dishes</h2>
+      <p class="menu-intro" id="t-m2-intro">Fresh seafood and Cantonese classics, made properly.</p>
+      <ul class="dish-list">
+        <li class="dish">
+          <div><p class="dish-name" id="t-d5-name">Mapo Tofu</p><p class="dish-desc" id="t-d5-desc">Silken tofu, doubanjiang, fermented black bean</p></div>
+          <span class="dish-price">€11.00</span>
+        </li>
+        <li class="dish">
+          <div><p class="dish-name" id="t-d6-name">Seafood Noodles</p><p class="dish-desc" id="t-d6-desc">Prawns, squid, fish, egg noodles in broth</p></div>
+          <span class="dish-price">€13.00</span>
+        </li>
+        <li class="dish">
+          <div><p class="dish-name" id="t-d7-name">Spare Ribs in Black Bean Sauce</p><p class="dish-desc" id="t-d7-desc">Steamed, fermented black bean, chilli</p></div>
+          <span class="dish-price">€12.50</span>
+        </li>
+        <li class="dish">
+          <div><p class="dish-name" id="t-d8-name">Garlic Pak Choi</p><p class="dish-desc" id="t-d8-desc">Stir-fried, oyster sauce, garlic</p></div>
+          <span class="dish-price">€8.50</span>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-photo" style="direction:ltr;">
+      <img src="images/maps-19.jpg" alt="Cantonese dish" />
+      <span class="menu-tag">Seafood</span>
+    </div>
+  </div>
+</section>
+
+<!-- FULL MENU -->
+<section class="full-menu" id="full-menu">
+  <div class="fm-inner">
+    <div class="fm-head">
+      <p class="eyebrow" id="t-fm-eyebrow">Complete Menu</p>
+      <h2 id="t-fm-title">Our full menu</h2>
+    </div>
+    <div class="fm-tabs" id="fm-tabs"></div>
+    <div id="fm-panels"></div>
+  </div>
+</section>
+
+<!-- SET MENUS -->
+<section class="set-menus">
+  <div class="set-header">
+    <p class="eyebrow" id="t-set-eyebrow">Set Menus</p>
+    <h2 id="t-set-title">Available every day</h2>
+  </div>
+  <div class="set-grid">
+    <div class="set-card light">
+      <p class="set-label" id="t-s1-label">12:00 – 17:00</p>
+      <h3 class="set-name" id="t-s1-name">Lunch Rapide</h3>
+      <p class="set-price">€8.90</p>
+      <p class="set-desc" id="t-s1-desc">Entrée: Potage au canard <em>ou</em> Croquettes impérial<br>Plat: Curry · Aigre-douce · Bœuf Sichuan<br>Poulet légumes · Porc Sichuan<br><em>Accompagné de riz blanc</em></p>
+    </div>
+    <div class="set-card dark">
+      <p class="set-label" id="t-s2-label">Menu Complet</p>
+      <h3 class="set-name" id="t-s2-name">Menu à 16,90€</h3>
+      <p class="set-price">€16.90</p>
+      <p class="set-desc" id="t-s2-desc">Potage piquant au canard<br>Croquettes impérial<br>Plat: Porc au miel <em>ou</em> Poulet Sichuan<br>Dessert: Glace <em>ou</em> Lychées</p>
+    </div>
+    <div class="set-card light">
+      <p class="set-label" id="t-s3-label">Premium</p>
+      <h3 class="set-name" id="t-s3-name">Menu à 18,90€</h3>
+      <p class="set-price">€18.90</p>
+      <p class="set-desc" id="t-s3-desc">Potage raviolis aux scampis<br>Entrées: Vapeur <em>ou</em> Hors-d'œuvre frits<br>Plat: Ananas · Grenouilles gingembre · Canard laqué<br>Dessert: Glace <em>ou</em> Lychées</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHEF -->
+<div class="chef">
+  <div class="chef-left">
+    <p class="chef-eyebrow" id="t-chef-eyebrow">From the Kitchen</p>
+    <blockquote class="chef-quote" id="t-chef-quote">"Authentic Cantonese cooking, crafted with care, tradition, and exceptional flavors."</blockquote>
+    <div class="chef-attr">
+      <span>Auntie Cafe — 阿姨小廚</span>
+      <span id="t-chef-addr">Rue Grétry 25, 1000 Brussels</span>
+    </div>
+  </div>
+  <div class="chef-right">
+    <img src="images/maps-17.jpg" alt="Auntie Cafe Brussels" />
+  </div>
+</div>
+
+<!-- BLOG -->
+<section class="blog" id="gallery">
+  <div class="blog-header">
+    <p class="eyebrow" style="margin-bottom:0.6rem;" id="t-blog-eyebrow">Blogs &amp; Updates</p>
+    <h2 id="t-blog-title">Restaurant blog &amp; update</h2>
+  </div>
+  <div class="blog-grid">
+    <div>
+      <img class="blog-card-img" src="images/maps-14.jpg" alt="Crispy pork belly" />
+      <p class="blog-date" id="t-b1-date">June 29, 2026</p>
+      <h3 class="blog-title" id="t-b1-title">Crispy Pork Belly — our most popular roast</h3>
+      <a href="#full-menu" class="blog-more" id="t-blog-more1">Read more</a>
+    </div>
+    <div>
+      <img class="blog-card-img" src="images/maps-22.jpg" alt="Fried noodles" />
+      <p class="blog-date" id="t-b2-date">June 29, 2026</p>
+      <h3 class="blog-title" id="t-b2-title">Fried Noodles with Assorted Meats</h3>
+      <a href="#full-menu" class="blog-more" id="t-blog-more2">Read more</a>
+    </div>
+    <div>
+      <img class="blog-card-img" src="images/maps-8.jpg" alt="Cantonese dish" />
+      <p class="blog-date" id="t-b3-date">June 29, 2026</p>
+      <h3 class="blog-title" id="t-b3-title">Mapo Tofu — the dish that keeps people coming back</h3>
+      <a href="#full-menu" class="blog-more" id="t-blog-more3">Read more</a>
+    </div>
+  </div>
+  <div class="bowl-wrap">
+    <img src="images/maps-12.jpg" alt="Signature dish" />
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="contact-cta">
+    <p class="contact-cta-eyebrow" id="t-cta-eyebrow">Reserve your table — call us</p>
+    <div class="contact-phone-wrap">
+      <a href="tel:+3222231424" class="contact-phone">02 223 14 24</a>
+      <div class="contact-phone-glow"></div>
+    </div>
+    <p class="contact-cta-sub" id="t-cta-hours">Open daily · Closed Thursday · 11:30 – 21:30</p>
+    <p class="contact-cta-addr">Rue Grétry 25, 1000 Brussels</p>
+  </div>
+  <div class="footer-tagline-wrap">
+    <h2 class="footer-tagline" id="t-foot-tagline">Timeless recipes<br>to savor &amp; enjoy</h2>
+    <div class="footer-info">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:3px;opacity:0.4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Rue Grétry 25<br>1000 Brussels, Belgium<br>5 min from De Brouckère</span>
+    </div>
+    <div class="footer-info">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:3px;opacity:0.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>02 223 14 24<br>Open daily except Thursday<br>11:30 – 21:30</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Auntie Cafe Brussels</span>
+    <span class="footer-logo">Auntie Cafe</span>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#full-menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const MENU = {
+  soups: {
+    tab:{en:'Soups',fr:'Potages',nl:'Soepen'},
+    items:[
+      {n:'1',en:'Hot Peking soup with duck',fr:'Potage piquant au canard',nl:'Hete soep met eend',zh:'酸辣汤',p:'5.20'},
+      {n:'2',en:'Duck soup with Chinese mushrooms',fr:'Potage au canard champignons chinois',nl:'Endensoep met Chinese champignons',zh:'鸭丝汤',p:'5.20'},
+      {n:'3',en:'Wonton soup',fr:'Potage de raviolis',nl:'Wontonsoep',zh:'云吞汤',p:'5.80'},
+      {n:'4',en:'Wonton soup with shrimps',fr:'Potage de raviolis aux scampis',nl:'Wontonsoep met garnalen',zh:'鲜虾水饺汤',p:'5.80'},
+      {n:'5',en:'Vegetables and salted egg soup',fr:'Potage aux légumes verts et œuf salé',nl:'Groente- en gezouten eiersoep',zh:'咸蛋芥菜汤',p:'10.80'},
+      {n:'6',en:'Tofu soup with seafood',fr:'Potage de tofu aux fruits de mer',nl:'Tofusoep met zeevruchten',zh:'豆腐海鲜汤',p:'12.80'},
+      {n:'7',en:'Noodles soup with beef strings',fr:'Soupe de nouilles aux tendons de bœuf',nl:'Noedelsoep met rundertendons',zh:'牛筋腩汤面',p:'11.80'},
+      {n:'8',en:"Noodles soup with seafood's",fr:'Soupe de nouilles aux fruits de mer',nl:'Noedelsoep met zeevruchten',zh:'海鲜汤面',p:'11.80'},
+      {n:'9',en:'Noodles soup with roasted duck',fr:'Soupe de nouilles au canard laqué',nl:'Noedelsoep met gebraden eend',zh:'烧鸭汤面',p:'11.50'},
+      {n:'10',en:'Noodles soup with honey pork',fr:'Soupe de nouilles au porc laqué au miel',nl:'Noedelsoep met honingvarken',zh:'叉烧汤面',p:'11.50'},
+      {n:'11',en:'Noodles soup with wonton',fr:'Soupe de nouilles aux raviolis',nl:'Noedelsoep met wontons',zh:'云吞汤面',p:'11.50'},
+      {n:'12',en:'Noodles soup with prawn wonton',fr:'Soupe de nouilles aux raviolis de scampis',nl:'Noedelsoep met garnalenravioli',zh:'水饺汤面',p:'11.50'},
+      {n:'13',en:'Rice soup with pork intestines',fr:'Soupe de riz aux tripes de porc',nl:'Rijstsoep met varkensdarmen',zh:'及第粥',p:'11.00'},
+      {n:'14',en:'Rice soup with preserved egg',fr:'Soupe de riz aux œufs centenaires',nl:'Rijstsoep met honderdjarig ei',zh:'皮蛋瘦肉粥',p:'11.00'},
+      {n:'15',en:"Rice soup with seafood's",fr:'Soupe de riz aux fruits de mer',nl:'Rijstsoep met zeevruchten',zh:'海鲜粥',p:'11.80'},
+      {n:'16',en:'Rice soup with squid',fr:'Soupe de riz aux calamars',nl:'Rijstsoep met inktvis',zh:'鱿仔粥',p:'11.00'},
+      {n:'17',en:'Rice soup with chicken blood',fr:'Soupe de riz au sang de poulet',nl:'Rijstsoep met kippenbloed',zh:'鸡红粥',p:'11.00'}
+    ]
+  },
+  starters: {
+    tab:{en:'Starters & Dim Sum',fr:'Entrées & Dim Sum',nl:'Voorgerechten & Dim Sum'},
+    items:[
+      {n:'18',en:'Rice rolls with beef',fr:'Crêpes de riz au bœuf',nl:'Rijstrolletjes met rundvlees',zh:'牛肉肠粉',p:'6.50'},
+      {n:'19',en:'Rice rolls with roasted pork',fr:'Crêpes de riz au porc laqué',nl:'Rijstrolletjes met gebraden varken',zh:'叉烧肠粉',p:'6.50'},
+      {n:'20',en:'Rice rolls with dried shrimps',fr:'Crêpes de riz aux crevettes séchées',nl:'Rijstrolletjes met gedroogde garnalen',zh:'虾米粉粿',p:'8.00'},
+      {n:'21',en:'Fried dough rice noodle rolls',fr:'Rouleau de nouilles de riz au youtiao',nl:'Gefrituurde rijstnoedelrolletjes',zh:'油条肠粉',p:'8.00'},
+      {n:'22',en:'Rice rolls with shrimps',fr:'Crêpes de riz aux crevettes',nl:'Rijstrolletjes met garnalen',zh:'鲜虾肠粉',p:'8.50'},
+      {n:'23',en:'Nature rice rolls',fr:'Natures de riz',nl:'Naturel rijstrolletjes',zh:'斋肠',p:'8.50'},
+      {n:'24',en:'Chinese spring-rolls with soy & chicken',fr:'Croquettes chinoises au soja et poulet',nl:"Chinese loempia's met soja en kip",zh:'鲜虾肠粉',p:'8.50'},
+      {n:'25',en:'Vietnamese spring-rolls',fr:'Croquettes vietnamiennes',nl:"Vietnamees loempia's",zh:'春卷粉',p:'7.00'},
+      {n:'26',en:'Grilled shanghai raviolis',fr:'Raviolis de shanghai grillés',nl:'Gegrilde Shanghai ravioli',zh:'煎饺',p:'7.00'},
+      {n:'27',en:'Spicy stuffed chicken wings',fr:'Ailes de poulet farcies pimentées',nl:'Gevulde pittige kippenvleugels',zh:'辣酿鸡卷',p:'7.50'},
+      {n:'28',en:"Fried house-style hors-d'oeuvre",fr:"Hors-d'œuvre variées frites",nl:'Gebakken voorgerechtjes',zh:'锅贴',p:'7.00'},
+      {n:'29',en:'Spicy duck tongues',fr:'Langues de canard pimentées',nl:'Pittige eendentong',zh:'椒盐鸭膀',p:'8.00'},
+      {n:'30',en:'Beef tripe',fr:'Tripes de bœuf',nl:'Runderpens',zh:'皮豆豆付',p:'9.00'},
+      {n:'31',en:'Boneless chicken feet with chilli',fr:'Pattes de poulet désossées pimentées',nl:'Pittige kippenvoetjes zonder bot',zh:'牛柔盅',p:'9.50'},
+      {n:'32',en:'Tofu with preserved eggs (cold)',fr:'Tofu aux œufs de cents ans (froid)',nl:'Tofu met honderdjarige eieren (koud)',zh:'冻拼盘',p:'8.50'},
+      {n:'33',en:'Grilled radish cake',fr:'Gâteaux de radis blanc grillés',nl:'Gegrilde radijskoek',zh:'萝卜糕',p:'8.00'},
+      {n:'34',en:"Steamed shrimp dumplings 'ha kao'",fr:"Bouchées de crevettes «ha kao»",nl:'Gestoomde garnalendumplings ha kao',zh:'虾饺',p:'9.50'},
+      {n:'35',en:"Steamed pork & shrimp dumplings 'siu mai'",fr:"Bouchées de porc & crevettes «siu mai»",nl:'Gestoomde varken & garnalendumplings',zh:'烧卖',p:'7.00'},
+      {n:'36',en:'Steamed shrimp raviolis with scampis',fr:'Bouchées de crevettes aux scampis',nl:'Gestoomde garnalenravioli met langoustines',zh:'虾饺',p:'7.00'},
+      {n:'37',en:"Steamed 'fan ko' (pork & shrimps)",fr:'Croissants farcis à la vapeur (porc & crevettes)',nl:"Gestoomde 'fan ko' (varken & garnalen)",zh:'粉粿',p:'7.00'},
+      {n:'38',en:'Spare-ribs with black beans',fr:'Spare-ribs aux haricots noirs',nl:'Spareribs met zwarte bonen',zh:'豉汁排骨',p:'7.00'},
+      {n:'39',en:'Fried beef stomach with ginger',fr:'Feuilles d\'estomac de bœuf au gingembre',nl:'Gebakken runderpens met gember',zh:'燕秋叶',p:'7.00'},
+      {n:'40',en:'Chicken feet with black beans',fr:'Pattes de poulet aux haricots noirs',nl:'Kippenvoetjes met zwarte bonen',zh:'豉汁凤爪',p:'7.00'},
+      {n:'41',en:'Steamed buns Shanghai style',fr:'Brioches à la vapeur à la façon Shanghai',nl:'Gestoomde broodjes Shanghai stijl',zh:'小笼包/叉烧包',p:'6.80'},
+      {n:'41a',en:'Sticky rice with meat in lotus leaf',fr:"Riz gluant avec de la viande enrobé d'une feuille de lotus",nl:'Kleefrijst met vlees in lotusblad',zh:'糯米鸡',p:'6.80'},
+      {n:'42',en:'Steamed mixed dim-sum',fr:'Entrées mixtes à la vapeur',nl:'Gemengde gestoomde dim sum',zh:'什锅蒸点心',p:'6.80'}
+    ]
+  },
+  poultry: {
+    tab:{en:'Chicken & Duck',fr:'Poulet & Canard',nl:'Kip & Eend'},
+    items:[
+      {n:'43',en:'Sliced chicken with Chinese mushrooms',fr:'Émincés de poulet aux champignons chinois',nl:'Gesneden kip met Chinese champignons',zh:'冬菇鸡片',p:'11.00'},
+      {n:'44',en:'Sliced chicken with hot sauce',fr:'Émincés de poulet à la sauce piquante',nl:'Gesneden kip met pikante saus',zh:'四川鸡片',p:'11.00'},
+      {n:'45',en:'Slice chicken with curry',fr:'Émincés de poulet au curry',nl:'Gesneden kip met curry',zh:'咖喱鸡片',p:'11.00'},
+      {n:'46',en:'Fried chicken with lemon juice',fr:'Beignets de poulet à la sauce citron',nl:'Gebakken kip met citroensaus',zh:'青柠软鸡',p:'11.20'},
+      {n:'46a',en:'Sweet-sour chicken',fr:'Beignet poulet aigre-doux',nl:'Zoetzure kip',zh:'咕噜鸡',p:'11.20'},
+      {n:'47',en:'Farm chicken with Chinese wine',fr:'Poulet parfumé au vin chinois',nl:'Hoevekip met Chinese wijn',zh:'香妃鸡(半只)',p:'17.50'},
+      {n:'48',en:'Farm chicken with soy sauce',fr:'Poulet fermier mariné à la sauce soja',nl:'Hoevekip gemarineerd in sojasaus',zh:'油鸡(半只)',p:'17.50'},
+      {n:'49',en:'Roasted duck Hong Kong style (portion/half)',fr:'Canard laqué de Hongkong (portion/demi)',nl:'Geroosterde eend Hong Kong stijl',zh:'烧鸭',p:'12.80'},
+      {n:'50',en:'Roasted Peking duck with pancakes',fr:'Canard laqué Pékin avec crêpes',nl:'Pekingeend met pannenkoekjes',zh:'北京烤鸭',p:'16.50'},
+      {n:'51',en:'Roasted duck with 8 treasures of China',fr:'Canard aux 8 délices chinois',nl:'Geroosterde eend met 8 schatten van China',zh:'八宝鸭',p:'15.00'}
+    ]
+  },
+  meat: {
+    tab:{en:'Pork & Beef',fr:'Porc & Bœuf',nl:'Varken & Rundvlees'},
+    items:[
+      {n:'52',en:'Sweet-sour pork',fr:'Beignet porc aigre-doux',nl:'Zoetzuur varken',zh:'咕噜肉',p:'11.20'},
+      {n:'53',en:'Sliced pork with Chinese vegetables',fr:'Émincés de porc aux légumes chinois',nl:'Gesneden varken met Chinese groenten',zh:'时菜肉片',p:'11.00'},
+      {n:'54',en:'Stir fry tofu with chopped pork',fr:'Tofu au porc à la sauce piquante',nl:'Roergebakken tofu met varken',zh:'麻婆豆腐',p:'12.00'},
+      {n:'55',en:'Roasted crispy pork',fr:'Porc rôti croustillant',nl:'Krokant geroosterd varken',zh:'脆皮烧肉',p:'12.80'},
+      {n:'56',en:'Roasted pork with honey',fr:'Porc laqué au miel',nl:'Geroosterd varken met honing',zh:'叉烧',p:'12.80'},
+      {n:'57',en:'Spare-ribs with garlic & chilli',fr:"Spare-ribs à l'ail et sel pimenté",nl:'Spareribs met knoflook en chili',zh:'椒盐排骨',p:'13.00'},
+      {n:'58',en:'Grilled spare-ribs with lemon grass',fr:'Spare-ribs grillés à la citronnelle',nl:'Gegrilde spareribs met citroengras',zh:'京都排骨',p:'13.00'},
+      {n:'59',en:'Fried spare-ribs KingTou sauce',fr:'Spare-ribs à la sauce KingTou',nl:'Gebakken spareribs met KingTou saus',zh:'时菜牛肉',p:'13.00'},
+      {n:'60',en:'Sliced beef with Chinese vegetables',fr:'Émincés de bœuf aux légumes chinois',nl:'Gesneden rundvlees met Chinese groenten',zh:'虾油牛肉',p:'13.00'},
+      {n:'61',en:'Sliced beef with oyster sauce',fr:"Émincés de bœuf à la sauce d'huître",nl:'Gesneden rundvlees met oestersaus',zh:'沙姜牛肉',p:'13.00'},
+      {n:'62',en:'Sliced beef with satay sauce',fr:'Émincés de bœuf à la sauce satay',nl:'Gesneden rundvlees met satésaus',zh:'四川牛肉',p:'13.00'},
+      {n:'63',en:'Sliced beef with hot sauce',fr:'Émincés de bœuf à la sauce piquante',nl:'Gesneden rundvlees met pikante saus',zh:'四川牛肉',p:'13.00'}
+    ]
+  },
+  seafood: {
+    tab:{en:'Seafood',fr:'Fruits de Mer',nl:'Zeevruchten'},
+    items:[
+      {n:'64',en:'Fried squid with Chinese vegetables',fr:'Calamars sautés aux légumes chinois',nl:'Gebakken inktvis met Chinese groenten',zh:'时菜鲜允',p:'13.00'},
+      {n:'65',en:'Fried squid with peppers & black beans',fr:'Calamars sautés aux poivrons et haricots noirs',nl:'Gebakken inktvis met paprika en zwarte bonen',zh:'豉椒鲜允',p:'13.00'},
+      {n:'66',en:'Seafood with Chinese vegetables',fr:'Fruits de mer aux légumes chinois',nl:'Zeevruchten met Chinese groenten',zh:'时菜海鲜',p:'15.90'},
+      {n:'67',en:'Fried prawns with tomato sauce',fr:'Scampis à la sauce tomate',nl:'Gebakken garnalen met tomatensaus',zh:'茄汁虾球',p:'15.80'},
+      {n:'68',en:'Fried prawns with satay sauce',fr:'Scampis à la sauce satay',nl:'Gebakken garnalen met satésaus',zh:'沙爹虾球',p:'15.80'},
+      {n:'69',en:'Grilled prawns with spicy salt',fr:'Scampis grillés au sel pimenté',nl:'Gegrilde garnalen met pittig zout',zh:'椒盐虾',p:'16.90'},
+      {n:'69a',en:'Fried prawns with garlic',fr:"Scampis sautés à l'ail",nl:'Gebakken garnalen met knoflook',zh:'蒜茸虾',p:'16.90'},
+      {n:'70',en:'Grilled prawns with tomato sauce',fr:'Scampis grillés à la sauce tomate',nl:'Gegrilde garnalen met tomatensaus',zh:'干煎虾',p:'16.90'},
+      {n:'71',en:'Steamed fish of the day with ginger',fr:'Poisson du jour à la vapeur au gingembre',nl:'Gestoomde vis van de dag met gember',zh:'清蒸海上鲜',p:'mkt'}
+    ]
+  },
+  rice: {
+    tab:{en:'Rice & Noodles',fr:'Riz & Nouilles',nl:'Rijst & Noedels'},
+    items:[
+      {n:'72',en:'Rice with honey roasted pork',fr:'Riz au porc laqué au miel',nl:'Rijst met honingvarken',zh:'叉烧饭',p:'11.50'},
+      {n:'73',en:'Rice with crispy pork',fr:'Riz au porc rôti croustillant',nl:'Rijst met krokant varken',zh:'烧肉饭',p:'11.50'},
+      {n:'74',en:'Rice with roasted duck',fr:'Riz au canard laqué',nl:'Rijst met geroosterde eend',zh:'烧鸭饭',p:'11.50'},
+      {n:'75',en:'Rice with farm chicken in soy sauce',fr:'Riz au poulet fermier à la sauce soja',nl:'Rijst met hoevekip in sojasaus',zh:'油鸡饭',p:'11.50'},
+      {n:'76',en:'Rice with roasted duck & pork',fr:'Riz au canard & porc laqué',nl:'Rijst met geroosterde eend en varken',zh:'烧拼饭',p:'11.80'},
+      {n:'77',en:'Fried rice chicken / beef / pork',fr:'Riz sauté au poulet / bœuf / porc laqué',nl:'Gebakken rijst kip / rund / varken',zh:'鸡/牛/叉烧炒饭',p:'10.00'},
+      {n:'78',en:'Fried rice Cantonese style',fr:'Riz sauté à la cantonaise',nl:'Gebakken rijst Kantonees stijl',zh:'扬州炒饭',p:'10.80'},
+      {n:'79',en:'Fried rice with prawns',fr:'Riz sauté aux scampis',nl:'Gebakken rijst met garnalen',zh:'虾球炒饭',p:'14.80'},
+      {n:'80',en:'Fried rice with duck',fr:'Riz sauté au canard',nl:'Gebakken rijst met eend',zh:'鸭炒饭',p:'10.00'},
+      {n:'81',en:'Fried noodles with honey roasted pork',fr:'Nouilles sautées au porc laqué',nl:'Gebakken noedels met honingvarken',zh:'叉烧炒面',p:'10.80'},
+      {n:'82',en:'Fried noodles with chicken / beef',fr:'Nouilles sautées au poulet / bœuf',nl:'Gebakken noedels met kip / rund',zh:'鸡/牛肉炒面',p:'10.80'},
+      {n:'83',en:'Fried noodles with duck',fr:'Nouilles sautées au canard',nl:'Gebakken noedels met eend',zh:'鸭炒面',p:'11.00'},
+      {n:'84',en:'Fried noodles with prawns',fr:'Nouilles sautées aux scampis',nl:'Gebakken noedels met garnalen',zh:'虾球炒面',p:'14.80'},
+      {n:'85',en:'Fried noodles with assorted meats',fr:'Nouilles sautées aux viandes mixes',nl:'Gebakken noedels met gemengd vlees',zh:'什会炒面',p:'12.80'},
+      {n:'86',en:'Fried rice noodles with beef',fr:'Pates de riz sautées au bœuf',nl:'Gebakken rijstnoedels met rundvlees',zh:'干炒牛河',p:'11.50'},
+      {n:'86a',en:'Fried rice noodles beef & black bean sauce',fr:'Pates de riz sautées au bœuf et haricots noirs',nl:'Gebakken rijstnoedels rund en zwarte bonen',zh:'豉椒牛河',p:'12.00'},
+      {n:'87',en:'Fried rice noodles Malaysian style',fr:'Pates de riz sautées au style Malaysien',nl:'Maleisische rijstnoedels',zh:'马拉炒河',p:'13.50'},
+      {n:'88',en:'Fried rice noodles with seafood',fr:'Pates de riz sautées aux fruits de mer',nl:'Gebakken rijstnoedels met zeevruchten',zh:'海鲜炒河',p:'14.50'},
+      {n:'89',en:'Fried rice vermicelli Singapore style',fr:'Vermicelles sautées Singapore',nl:'Gebakken vermicelli Singapore stijl',zh:'星洲炒米',p:'11.50'}
+    ]
+  },
+  suggestions: {
+    tab:{en:'Suggestions',fr:'Suggestions',nl:'Suggesties'},
+    items:[
+      {n:'90',en:'Roasted duck & crispy pork',fr:'Assortiment de canard et porc croustillant',nl:'Geroosterde eend en krokant varken',zh:'烧拼',p:'16.50'},
+      {n:'91',en:'Duck tongues with 5 spices',fr:'Langues de canard aux 5 parfums',nl:'Eendentong met 5 specerijen',zh:'椒盐鸭舌',p:'15.50'},
+      {n:'93',en:'Braised chicken pot in red curry',fr:'Marmite de poulet fermier au curry rouge',nl:'Gestoofde kip in rode curry',zh:'红咖喱鸡煲',p:'13.50'},
+      {n:'94',en:'Vegetarian pot',fr:'Marmite végétarienne',nl:'Vegetarische pot',zh:'罗汉斋煲',p:'12.00'}
+    ]
+  },
+  pots: {
+    tab:{en:'Pots & Vegetables',fr:'Marmites & Légumes',nl:'Stoofpotten & Groenten'},
+    items:[
+      {n:'95',en:'Chicken blood with ginger and onion',fr:'Sang de poulet au gingembre et oignons',nl:'Kippenbloed met gember en ui',zh:'皆鸡红',p:'13.00'},
+      {n:'96',en:'Crispy pork intestines',fr:'Boyaux de porc croustillants',nl:'Krokante varkensdarmen',zh:'酸菜大肠',p:'13.90'},
+      {n:'97',en:'Pork intestines with sour vegetables',fr:'Boyaux de porc aux légumes vinaigrés',nl:'Varkensdarmen met zure groenten',zh:'豉椒牛白叶',p:'13.90'},
+      {n:'99',en:'Beef stomach with black beans',fr:"Feuille d'estomac de bœuf aux haricots noirs",nl:'Runderpens met zwarte bonen',zh:'八珍豆腐煲',p:'13.90'},
+      {n:'100',en:'Tofu pot with assorted meats',fr:'Marmite de tofu aux viandes mixtes',nl:'Tofupot met gemengd vlees',zh:'红烧豆腐',p:'12.00'},
+      {n:'101',en:'Tofu pot with vegetables',fr:'Marmite de tofu aux légumes',nl:'Tofupot met groenten',zh:'梅菜扣肉',p:'14.80'},
+      {n:'102',en:'Pork with macerated vegetables',fr:'Lard aux légumes macérés',nl:'Varken met gemarineerde groenten',zh:'红咖喱羊腩煲',p:'15.90'},
+      {n:'103',en:'Braised lamb pot with curry',fr:"Marmite d'agneau au curry",nl:'Gestoofde lamspot met curry',zh:'枝竹羊腩煲',p:'15.90'},
+      {n:'104',en:'Lamb pot with beans leaves',fr:"Marmite d'agneau aux feuilles d'haricot",nl:'Lamspot met bonenblad',zh:'枝竹羊腩煲',p:'15.90'},
+      {n:'105',en:'Eggplant casserole Sichuan style',fr:'Marmite d\'aubergines à la sauce Sichuan',nl:'Aubergine stoofpot Sichuan stijl',zh:'鱼香茄子煲',p:'13.20'},
+      {n:'106',en:'Fried eggplants with spicy minced pork',fr:"Marmite d'aubergines au porc haché (piquant)",nl:'Aubergine met pittig varkensgehakt',zh:'鱼香茄子煲',p:'13.20'},
+      {n:'107',en:'Fried mussels with black beans',fr:'Moules sautées aux haricots noirs',nl:'Gebakken mosselen met zwarte bonen',zh:'豉汁炒青口',p:'14.90'},
+      {n:'107a',en:"Frog's legs with butter and garlic",fr:"Cuisses de grenouilles au beurre et à l'ail",nl:'Kikkerbillen met boter en knoflook',zh:'牛油蒜茸田鸡',p:'15.50'},
+      {n:'108',en:'Deep-fried spare-ribs with garlic',fr:"Spare-ribs frits à l'ail",nl:'Gefrituurde spareribs met knoflook',zh:'蒜香排骨',p:'13.00'},
+      {n:'110',en:'Earthen pot with beef in 5 spices',fr:'Marmite de bœuf aux 5 épices',nl:'Aarden pot met rundvlees en 5 specerijen',zh:'牛筋腩煲',p:'14.80'},
+      {n:'112',en:'Fried rice cakes with pork Shanghai style',fr:'Gâteaux de riz frites au porc à la façon Shanghai',nl:'Gebakken rijstcakes met varken Shanghai stijl',zh:'炒年糕',p:'11.00'},
+      {n:'113',en:'Kaichoi or Shanghai pakchoi with garlic',fr:"Légumes kaichoi ou Shanghai pakchoi à l'ail",nl:'Kaichoi of Shanghai pakchoi met knoflook',zh:'蒜茸芥菜/上海白菜',p:'10.00'},
+      {n:'114',en:'Kai-lai vegetable with oyster sauce',fr:"Légumes kai-lai à la sauce d'huître",nl:'Kai-lai groenten met oestersaus',zh:'蒜茸芥兰',p:'12.50'},
+      {n:'114a',en:'Fried water spinach with garlic sauce',fr:"Liserons d'eau sautés à l'ail",nl:'Gebakken waterkers met knoflooksaus',zh:'蒜通才',p:'11.50'}
+    ]
+  },
+  auntie: {
+    tab:{en:"Auntie's Specialties",fr:'Spécialités de la Maison',nl:'Specialiteiten van het Huis'},
+    items:[
+      {n:'A',en:'Tomato egg drop soup',fr:"Soupe de tomates aux fleurs d'œufs",nl:'Tomaten-eiervlokkensoep',zh:'番茄蛋汤',p:'5.20'},
+      {n:'B',en:'Seaweed soup',fr:"Soupe d'algues",nl:'Zeewiersoep',zh:'紫菜汤',p:'5.20'},
+      {n:'C',en:'Beef soup with tofu (Chinese style)',fr:'Soupe de bœuf aux tofu (style Chinois)',nl:'Rundvleessoep met tofu (Chinese stijl)',zh:'西湖牛肉羹汤(中)',p:'11.80'},
+      {n:'E',en:'Sweet-sour shrimp',fr:"Beignet scampi à l'aigre-doux",nl:'Zoetzure garnalen',zh:'咕噜虾',p:'15.90'},
+      {n:'F',en:'Fried eggplants with spicy shrimp pot',fr:'Marmite d\'aubergine au scampi (piquant)',nl:'Aubergine met pittige garnalenpot',zh:'鱼香虾茄子煲',p:'16.80'},
+      {n:'G',en:'Sweet-sour fish fillet',fr:"Beignet filet de poisson à l'aigre-doux",nl:'Zoetzure visfilet',zh:'咕噜鱼',p:'14.50'},
+      {n:'H',en:'Spicy Sichuan boiled fish',fr:'Poisson bouilli épicé au Sichuan',nl:'Pikante Sichuan gekookte vis',zh:'水煮鱼',p:'16.50'},
+      {n:'I',en:'Fried eggplants with spicy salted fish pot',fr:'Marmite d\'aubergine avec poisson salé (piquant)',nl:'Aubergine met pittige gezouten vispot',zh:'咸鱼茄子煲',p:'13.50'},
+      {n:'K',en:'Steamed pork patty with salted fish',fr:'Galette de porc à la vapeur avec poisson salé',nl:'Gestoomde varkenskotelette met gezouten vis',zh:'咸鱼蒸肉饼',p:'14.50'},
+      {n:'L',en:'Braised roast pork belly with tofu pot',fr:'Marmite de ventre de porc rôti avec tofu',nl:'Gestoofde varkensbuik met tofupot',zh:'豆腐火腩煲',p:'12.90'},
+      {n:'M',en:'Stuffed tofu pot',fr:'Marmite de tofu farci',nl:'Gevulde tofupot',zh:'酿豆腐煲',p:'16.50'},
+      {n:'N',en:'Sweet-sour spare-ribs',fr:"Spare-ribs à l'aigre-doux",nl:'Zoetzure spareribs',zh:'生炒骨',p:'13.50'},
+      {n:'O',en:'Spicy Sichuan boiled beef',fr:'Bœuf bouilli épicé au Sichuan',nl:'Pikante Sichuan gekookt rundvlees',zh:'水煮肉',p:'16.00'},
+      {n:'P',en:'Sliced beef with cashew and black beans',fr:'Émincés de bœuf aux noix cajou et haricots noirs',nl:'Gesneden rundvlees met cashewnoten en zwarte bonen',zh:'黑椒腰果牛肉',p:'14.50'},
+      {n:'Q',en:'Sliced beef with black beans',fr:'Émincés de bœuf aux haricots noirs',nl:'Gesneden rundvlees met zwarte bonen',zh:'黑椒碧绿牛肉',p:'13.50'},
+      {n:'R',en:'Auntie special dish',fr:'Auntie plat spécial',nl:'Auntie speciaal gerecht',zh:'姑妈少炒',p:'15.50'},
+      {n:'S',en:'Crispy noodles with assorted meat',fr:'Nouilles croustillants aux viandes mixes',nl:'Krokante noedels met gemengd vlees',zh:'什会脆面',p:'13.50'},
+      {n:'T',en:'Fried rice noodles with seafood (with sauce)',fr:'Pates de riz sautées aux fruits de mer (avec sauce)',nl:'Gebakken rijstnoedels met zeevruchten (met saus)',zh:'湿海鲜炒河',p:'15.00'}
+    ]
+  }
+};
+
+function openCategory(cat) {
+  document.querySelectorAll('.fm-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.fm-panel').forEach(p => p.classList.remove('active'));
+  const btn = document.querySelector('.fm-tab[data-cat="' + cat + '"]');
+  if (btn) btn.classList.add('active');
+  const panel = document.getElementById('fp-' + cat);
+  if (panel) panel.classList.add('active');
+  document.getElementById('full-menu').scrollIntoView({ behavior: 'smooth' });
+  return false;
+}
+
+function renderFullMenu(lang) {
+  const tabs = document.getElementById('fm-tabs');
+  const panels = document.getElementById('fm-panels');
+  if (!tabs || !panels) return;
+  const cats = Object.keys(MENU);
+  const activeCat = tabs.querySelector('.fm-tab.active')?.dataset.cat || cats[0];
+  tabs.innerHTML = cats.map(k =>
+    `<button class="fm-tab${k===activeCat?' active':''}" data-cat="${k}" onclick="switchTab(this,'${k}')">${MENU[k].tab[lang]||MENU[k].tab.en}</button>`
+  ).join('');
+  panels.innerHTML = cats.map(k =>
+    `<div class="fm-panel${k===activeCat?' active':''}" id="fp-${k}"><div class="fm-grid">${
+      MENU[k].items.map(d =>
+        `<div class="fm-dish"><div><span class="fm-num">${d.n}.</span><span class="fm-name">${d[lang]||d.en}</span><span class="fm-zh">${d.zh}</span></div><span class="fm-price">${d.p==='mkt'?'—':'€'+d.p}</span></div>`
+      ).join('')
+    }</div></div>`
+  ).join('');
+}
+
+function switchTab(btn, cat) {
+  document.querySelectorAll('.fm-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.fm-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById('fp-' + cat);
+  if (panel) panel.classList.add('active');
+}
+
+const T = {
+  en: {
+    'nav-home':'Home','nav-about':'About','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu',
+    'hero-label':'Authentic Cantonese · Brussels · Since 2010',
+    'hero-title':'Delicious food &amp;<br>wonderful eating experience',
+    'hero-tagline':'We serve real Cantonese &amp; home-style food. Rue Grétry 25, Brussels.',
+    'hero-btn':'Reserve a table',
+    'trust-rating':'4.2 on Google','trust-reviews':'514 Guest Reviews',
+    'trust-hours':'Open Daily · Closed Thursday','trust-service':'Dine-in &amp; Takeaway',
+    'imm-eyebrow':'Authentic Cantonese Food &amp; Tradition',
+    'imm-neon':'Cantonese',
+    'imm-title':'Immerse yourself in a<br><span class="neon-line" id="t-imm-neon">Cantonese</span> experience.',
+    'imm-p1':'The art of roasted duck and char siu, made daily with care, tradition, and flavours that cannot be mistaken for anything else.',
+    'imm-p2':'Cantonese roast meats perfected with patience, real recipes and an eye for detail. Taste the perfect harmony.',
+    'imm-btn':'Food menu',
+    'cat-eyebrow':'Popular Category','cat-title':'What would you like<br>to eat today?',
+    'cat1-tag':'Potages / 汤面类','cat1-name':'Soups','cat1-count':'17 Items',
+    'cat2-tag':'Entrées / 头盘类','cat2-name':'Starters &amp; Dim Sum','cat2-count':'26 Items',
+    'cat3-tag':'Poulet &amp; Canard / 鸡鸭类','cat3-name':'Chicken &amp; Duck','cat3-count':'10 Items',
+    'cat4-tag':'Porc &amp; Bœuf / 猪牛肉类','cat4-name':'Pork &amp; Beef','cat4-count':'12 Items',
+    'cat5-tag':'Fruits de Mer / 海鲜类','cat5-name':'Seafood','cat5-count':'9 Items',
+    'cat6-tag':'Riz &amp; Nouilles / 饭面类','cat6-name':'Rice &amp; Noodles','cat6-count':'19 Items',
+    'cat7-tag':'Marmites &amp; Légumes / 煲类','cat7-name':'Pots &amp; Vegetables','cat7-count':'19 Items',
+    'cat8-tag':'Spécialités / 姑妈特选','cat8-name':"Auntie's Specialties",'cat8-count':'18 Items',
+    'fm-eyebrow':'Complete Menu','fm-title':'Our full menu',
+    'm1-eyebrow':'Featured Menu','m1-title':'Famous roasted<br>meats',
+    'm1-intro':'Roasted in-house each day, carved to order with house sauce.',
+    'd1-name':'Roasted Duck &amp; Crispy Pork','d1-desc':'Lacquered duck, crackling pork belly, house sauce',
+    'd2-name':'Honey Roasted Pork (Char Siu)','d2-desc':'Cantonese BBQ pork, caramelised glaze',
+    'd3-name':'Grilled Radish Cake','d3-desc':'Pan-fried, soy dipping sauce',
+    'd4-name':'Peking Duck','d4-desc':'Pancakes, spring onion, cucumber, hoisin',
+    'm2-eyebrow':'Sea Food','m2-title':'Sea fish &amp; dishes',
+    'm2-intro':'Fresh seafood and Cantonese classics, made properly.',
+    'd5-name':'Mapo Tofu','d5-desc':'Silken tofu, doubanjiang, fermented black bean',
+    'd6-name':'Seafood Noodles','d6-desc':'Prawns, squid, fish, egg noodles in broth',
+    'd7-name':'Spare Ribs in Black Bean Sauce','d7-desc':'Steamed, fermented black bean, chilli',
+    'd8-name':'Garlic Pak Choi','d8-desc':'Stir-fried, oyster sauce, garlic',
+    'set-eyebrow':'Set Menus','set-title':'Available every day',
+    's1-label':'12:00 – 17:00','s1-name':'Lunch Rapide','s1-desc':'Starter: Duck soup <em>or</em> Spring rolls<br>Main: Curry · Sweet-sour · Beef Sichuan<br>Chicken veg · Pork Sichuan<br><em>Served with white rice</em>',
+    's2-label':'Full Menu','s2-name':'Menu at €16.90','s2-desc':'Hot Peking duck soup<br>Spring rolls<br>Main: Honey pork <em>or</em> Chicken Sichuan<br>Dessert: Ice cream <em>or</em> Lychees',
+    's3-label':'Premium','s3-name':'Menu at €18.90','s3-desc':'Scampi wonton soup<br>Starters: Steamed <em>or</em> Fried hors-d\'oeuvre<br>Main: Pineapple chicken · Frog legs · Roasted duck<br>Dessert: Ice cream <em>or</em> Lychees',
+    'chef-eyebrow':'From the Kitchen',
+    'chef-quote':'"Authentic Cantonese cooking, crafted with care, tradition, and exceptional flavors."',
+    'chef-addr':'Rue Grétry 25, 1000 Brussels',
+    'blog-eyebrow':'Blogs &amp; Updates','blog-title':'Restaurant blog &amp; update',
+    'b1-date':'June 29, 2026','b1-title':'Crispy Pork Belly — our most popular roast',
+    'b2-date':'June 29, 2026','b2-title':'Fried Noodles with Assorted Meats',
+    'b3-date':'June 29, 2026','b3-title':'Mapo Tofu — the dish that keeps people coming back',
+    'blog-more1':'Read more','blog-more2':'Read more','blog-more3':'Read more',
+    'cta-eyebrow':'Reserve your table — call us',
+    'cta-hours':'Open daily · Closed Thursday · 11:30 – 21:30',
+    'foot-tagline':'Timeless recipes<br>to savor &amp; enjoy',
+  },
+  fr: {
+    'nav-home':'Accueil','nav-about':'À propos','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu',
+    'hero-label':'Cuisine Cantonaise Authentique · Bruxelles · Depuis 2010',
+    'hero-title':'Délicieux repas &amp;<br>une merveilleuse expérience culinaire',
+    'hero-tagline':'Nous servons une vraie cuisine cantonaise et familiale. Rue Grétry 25, Bruxelles.',
+    'hero-btn':'Réserver une table',
+    'trust-rating':'4,2 sur Google','trust-reviews':'514 Avis clients',
+    'trust-hours':'Ouvert tous les jours · Fermé le jeudi','trust-service':'Sur place &amp; à emporter',
+    'imm-eyebrow':'Cuisine Cantonaise Authentique &amp; Tradition',
+    'imm-neon':'expérience',
+    'imm-title':'Plongez dans une<br><span class="neon-line" id="t-imm-neon">expérience</span> cantonaise.',
+    'imm-p1':'L\'art du canard laqué et du char siu, préparés chaque jour avec soin, tradition et des saveurs uniques.',
+    'imm-p2':'Les viandes rôties cantonaises perfectionnées avec patience, de vraies recettes et un œil pour le détail.',
+    'imm-btn':'Voir le menu',
+    'cat-eyebrow':'Catégorie Populaire','cat-title':'Qu\'est-ce que vous voulez<br>manger aujourd\'hui ?',
+    'cat1-tag':'Potages / 汤面类','cat1-name':'Potages','cat1-count':'17 Plats',
+    'cat2-tag':'Entrées / 头盘类','cat2-name':'Entrées &amp; Dim Sum','cat2-count':'26 Plats',
+    'cat3-tag':'Poulet &amp; Canard / 鸡鸭类','cat3-name':'Poulet &amp; Canard','cat3-count':'10 Plats',
+    'cat4-tag':'Porc &amp; Bœuf / 猪牛肉类','cat4-name':'Porc &amp; Bœuf','cat4-count':'12 Plats',
+    'cat5-tag':'Fruits de Mer / 海鲜类','cat5-name':'Fruits de Mer','cat5-count':'9 Plats',
+    'cat6-tag':'Riz &amp; Nouilles / 饭面类','cat6-name':'Riz &amp; Nouilles','cat6-count':'19 Plats',
+    'cat7-tag':'Marmites &amp; Légumes / 煲类','cat7-name':'Marmites &amp; Légumes','cat7-count':'19 Plats',
+    'cat8-tag':'Spécialités / 姑妈特选','cat8-name':'Spécialités Auntie','cat8-count':'18 Plats',
+    'fm-eyebrow':'Menu Complet','fm-title':'Notre menu complet',
+    'm1-eyebrow':'Menu Vedette','m1-title':'Viandes rôties<br>célèbres',
+    'm1-intro':'Rôties chaque jour, découpées sur commande avec sauce maison.',
+    'd1-name':'Canard Laqué &amp; Cochon Croustillant','d1-desc':'Canard laqué, poitrine croustillante, sauce maison',
+    'd2-name':'Porc Rôti au Miel (Char Siu)','d2-desc':'Porc BBQ cantonais, glaçage caramélisé',
+    'd3-name':'Galette de Radis Grillée','d3-desc':'Poêlée, sauce soja',
+    'd4-name':'Canard de Pékin','d4-desc':'Crêpes, oignon nouveau, concombre, hoisin',
+    'm2-eyebrow':'Fruits de Mer','m2-title':'Poissons &amp; plats de mer',
+    'm2-intro':'Fruits de mer frais et classiques cantonais, bien préparés.',
+    'd5-name':'Tofu Mapo','d5-desc':'Tofu soyeux, doubanjiang, haricots noirs fermentés',
+    'd6-name':'Nouilles aux Fruits de Mer','d6-desc':'Crevettes, calamar, poisson, nouilles aux œufs',
+    'd7-name':'Côtes en Sauce Haricots Noirs','d7-desc':'Cuit à la vapeur, haricots noirs, piment',
+    'd8-name':'Pak Choi à l\'Ail','d8-desc':'Sauté, sauce d\'huître, ail',
+    'set-eyebrow':'Menus','set-title':'Disponibles tous les jours',
+    's1-label':'12:00 – 17:00','s1-name':'Lunch Rapide','s1-desc':'Entrée: Potage au canard <em>ou</em> Croquettes impérial<br>Plat: Curry · Aigre-douce · Bœuf Sichuan<br>Poulet légumes · Porc Sichuan<br><em>Accompagné de riz blanc</em>',
+    's2-label':'Menu Complet','s2-name':'Menu à 16,90€','s2-desc':'Potage piquant au canard<br>Croquettes impérial<br>Plat: Porc au miel <em>ou</em> Poulet Sichuan<br>Dessert: Glace <em>ou</em> Lychées',
+    's3-label':'Premium','s3-name':'Menu à 18,90€','s3-desc':'Potage raviolis aux scampis<br>Entrées: Vapeur <em>ou</em> Hors-d\'œuvre frits<br>Plat: Ananas · Grenouilles gingembre · Canard laqué<br>Dessert: Glace <em>ou</em> Lychées',
+    'chef-eyebrow':'De la Cuisine',
+    'chef-quote':'« Cuisine cantonaise authentique, préparée avec soin, tradition et des saveurs exceptionnelles. »',
+    'chef-addr':'Rue Grétry 25, 1000 Bruxelles',
+    'blog-eyebrow':'Blog &amp; Actualités','blog-title':'Blog &amp; actualités du restaurant',
+    'b1-date':'29 juin 2026','b1-title':'Poitrine Croustillante — notre rôti le plus populaire',
+    'b2-date':'29 juin 2026','b2-title':'Nouilles Sautées aux Viandes Assorties',
+    'b3-date':'29 juin 2026','b3-title':'Tofu Mapo — le plat qui fait revenir les clients',
+    'blog-more1':'Lire plus','blog-more2':'Lire plus','blog-more3':'Lire plus',
+    'cta-eyebrow':'Réservez votre table — appelez-nous',
+    'cta-hours':'Ouvert tous les jours · Fermé le jeudi · 11:30 – 21:30',
+    'foot-tagline':'Recettes intemporelles<br>à savourer &amp; déguster',
+  },
+  nl: {
+    'nav-home':'Startpagina','nav-about':'Over ons','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu',
+    'hero-label':'Authentieke Kantonese Keuken · Brussel · Sinds 2010',
+    'hero-title':'Heerlijk eten &amp;<br>een prachtige eetbeleving',
+    'hero-tagline':'Wij serveren echte Kantonese en huisgemaakte gerechten. Rue Grétry 25, Brussel.',
+    'hero-btn':'Reserveer een tafel',
+    'trust-rating':'4,2 op Google','trust-reviews':'514 Gastbeoordelingen',
+    'trust-hours':'Dagelijks open · Gesloten op donderdag','trust-service':'Ter plaatse &amp; afhalen',
+    'imm-eyebrow':'Authentieke Kantonese Keuken &amp; Traditie',
+    'imm-neon':'Kantonese',
+    'imm-title':'Dompel jezelf onder<br>in een <span class="neon-line" id="t-imm-neon">Kantonese</span> beleving.',
+    'imm-p1':'De kunst van gebraden eend en char siu, dagelijks bereid met zorg, traditie en unieke smaken.',
+    'imm-p2':'Kantonese gebraden vlees, geperfectioneerd met geduld, echte recepten en oog voor detail.',
+    'imm-btn':'Ons menu',
+    'cat-eyebrow':'Populaire Categorie','cat-title':'Wat wil je<br>vandaag eten?',
+    'cat1-tag':'Potages / 汤面类','cat1-name':'Soepen','cat1-count':'17 Gerechten',
+    'cat2-tag':'Entrées / 头盘类','cat2-name':'Voorgerechten &amp; Dim Sum','cat2-count':'26 Gerechten',
+    'cat3-tag':'Kip &amp; Eend / 鸡鸭类','cat3-name':'Kip &amp; Eend','cat3-count':'10 Gerechten',
+    'cat4-tag':'Varken &amp; Rund / 猪牛肉类','cat4-name':'Varken &amp; Rundvlees','cat4-count':'12 Gerechten',
+    'cat5-tag':'Zeevruchten / 海鲜类','cat5-name':'Zeevruchten','cat5-count':'9 Gerechten',
+    'cat6-tag':'Rijst &amp; Noedels / 饭面类','cat6-name':'Rijst &amp; Noedels','cat6-count':'19 Gerechten',
+    'cat7-tag':'Stoofpotten &amp; Groenten / 煲类','cat7-name':'Stoofpotten &amp; Groenten','cat7-count':'19 Gerechten',
+    'cat8-tag':'Specialiteiten / 姑妈特选','cat8-name':'Auntie Specialiteiten','cat8-count':'18 Gerechten',
+    'fm-eyebrow':'Volledig Menu','fm-title':'Ons volledig menu',
+    'm1-eyebrow':'Uitgelicht Menu','m1-title':'Beroemde geroosterde<br>vleesgerechten',
+    'm1-intro':'Dagelijks geroosterd in eigen keuken, gesneden op bestelling met huissaus.',
+    'd1-name':'Geroosterde Eend &amp; Krokant Spek','d1-desc':'Gelakte eend, knapperige varkensbuik, huissaus',
+    'd2-name':'Honinggeroosterd Varken (Char Siu)','d2-desc':'Kantonese BBQ-varken, gekarameliseerd glazuur',
+    'd3-name':'Gegrilde Radijstaart','d3-desc':'Gebakken in de pan, sojasaus',
+    'd4-name':'Pekingeend','d4-desc':'Pannenkoekjes, bosui, komkommer, hoisin',
+    'm2-eyebrow':'Zeevruchten','m2-title':'Vis &amp; zeevruchtengerechten',
+    'm2-intro':'Verse zeevruchten en Kantonese klassiekers, goed bereid.',
+    'd5-name':'Mapo Tofu','d5-desc':'Zijdeachtige tofu, doubanjiang, gefermenteerde zwarte bonen',
+    'd6-name':'Noedels met Zeevruchten','d6-desc':'Garnalen, inktvis, vis, eiermie in bouillon',
+    'd7-name':'Spareribs in Zwartebonensaus','d7-desc':'Gestoomd, gefermenteerde zwarte bonen, chili',
+    'd8-name':'Knoflook Pak Choi','d8-desc':'Roergebakken, oestersaus, knoflook',
+    'set-eyebrow':'Vaste Menu\'s','set-title':'Elke dag beschikbaar',
+    's1-label':'12:00 – 17:00','s1-name':'Snelle Lunch','s1-desc':'Voorgerecht: Endensoep <em>of</em> Loempia\'s<br>Hoofdgerecht: Curry · Zoetzuur · Rund Sichuan<br>Kip groenten · Varken Sichuan<br><em>Geserveerd met witte rijst</em>',
+    's2-label':'Volledig Menu','s2-name':'Menu aan €16,90','s2-desc':'Hete soep met eend<br>Loempia\'s<br>Hoofdgerecht: Honingvarken <em>of</em> Kip Sichuan<br>Dessert: Ijs <em>of</em> Lychees',
+    's3-label':'Premium','s3-name':'Menu aan €18,90','s3-desc':'Scampi wontonsoep<br>Voorgerechten: Gestoomd <em>of</em> Gebakken hors-d\'oeuvre<br>Hoofdgerecht: Ananas kip · Kikkerbillen · Gebraden eend<br>Dessert: Ijs <em>of</em> Lychees',
+    'chef-eyebrow':'Uit de Keuken',
+    'chef-quote':'"Authentieke Kantonese keuken, bereid met zorg, traditie en uitzonderlijke smaken."',
+    'chef-addr':'Rue Grétry 25, 1000 Brussel',
+    'blog-eyebrow':'Blog &amp; Updates','blog-title':'Restaurant blog &amp; nieuws',
+    'b1-date':'29 juni 2026','b1-title':'Krokante Varkensbuik — ons populairste gebraad',
+    'b2-date':'29 juni 2026','b2-title':'Gebakken Noedels met Gemengd Vlees',
+    'b3-date':'29 juni 2026','b3-title':'Mapo Tofu — het gerecht waar mensen voor terugkomen',
+    'blog-more1':'Lees meer','blog-more2':'Lees meer','blog-more3':'Lees meer',
+    'cta-eyebrow':'Reserveer uw tafel — bel ons',
+    'cta-hours':'Dagelijks open · Gesloten op donderdag · 11:30 – 21:30',
+    'foot-tagline':'Tijdloze recepten<br>om van te genieten',
+  }
+};
+
+function setLang(lang) {
+  const dict = T[lang];
+  Object.keys(dict).forEach(key => {
+    const el = document.getElementById('t-' + key);
+    if (el) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('auntie-lang', lang);
+  renderFullMenu(lang);
+}
+
+(function() {
+  const saved = localStorage.getItem('auntie-lang') || 'en';
+  renderFullMenu(saved);
+  if (saved !== 'en') setLang(saved);
+})();
+</script>
+</body>
+</html>
