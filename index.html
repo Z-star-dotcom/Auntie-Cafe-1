@@ -308,8 +308,12 @@
     }
     .lang-btn:first-child { border-radius: 2px 0 0 2px; }
     .lang-btn:last-child  { border-radius: 0 2px 2px 0; }
-    .lang-btn:hover { color: var(--rice); border-color: rgba(240,232,208,0.5); }
-    .lang-btn.active { background: var(--char); border-color: var(--char); color: var(--rice); }
+    .lang-btn:hover { color: var(--rice); border-color: rgba(240,232,208,0.5); box-shadow: 0 0 10px rgba(240,232,208,0.4); }
+    .lang-btn.active { background: var(--char); border-color: var(--char); color: var(--rice); animation: lang-glow-pulse 2.4s ease-in-out infinite; }
+    @keyframes lang-glow-pulse {
+      0%, 100% { box-shadow: 0 0 8px rgba(196,89,42,0.6), 0 0 16px rgba(196,89,42,0.25); }
+      50% { box-shadow: 0 0 16px rgba(196,89,42,0.9), 0 0 30px rgba(196,89,42,0.45); }
+    }
 
     /* ─── FULL MENU ─── */
     .full-menu { background: var(--stone); padding: 6rem 3.5rem; }
@@ -437,7 +441,7 @@
   </div>
   <div class="trust-item">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-    <span id="t-trust-reviews">514 Guest Reviews</span>
+    <span id="t-trust-reviews">500+ Guest Reviews</span>
   </div>
   <div class="trust-item">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -944,7 +948,7 @@ const T = {
     'hero-title':'Delicious food &amp;<br>wonderful eating experience',
     'hero-tagline':'We serve real Cantonese &amp; home-style food. Rue Grétry 25, Brussels.',
     'hero-btn':'Reserve a table',
-    'trust-rating':'4.2 on Google','trust-reviews':'514 Guest Reviews',
+    'trust-rating':'4.2 on Google','trust-reviews':'500+ Guest Reviews',
     'trust-hours':'Open Daily · Closed Thursday','trust-service':'Dine-in &amp; Takeaway',
     'imm-eyebrow':'Authentic Cantonese Food &amp; Tradition',
     'imm-neon':'Cantonese',
@@ -996,7 +1000,7 @@ const T = {
     'hero-title':'Délicieux repas &amp;<br>une merveilleuse expérience culinaire',
     'hero-tagline':'Nous servons une vraie cuisine cantonaise et familiale. Rue Grétry 25, Bruxelles.',
     'hero-btn':'Réserver une table',
-    'trust-rating':'4,2 sur Google','trust-reviews':'514 Avis clients',
+    'trust-rating':'4,2 sur Google','trust-reviews':'500+ Avis clients',
     'trust-hours':'Ouvert tous les jours · Fermé le jeudi','trust-service':'Sur place &amp; à emporter',
     'imm-eyebrow':'Cuisine Cantonaise Authentique &amp; Tradition',
     'imm-neon':'expérience',
@@ -1048,7 +1052,7 @@ const T = {
     'hero-title':'Heerlijk eten &amp;<br>een prachtige eetbeleving',
     'hero-tagline':'Wij serveren echte Kantonese en huisgemaakte gerechten. Rue Grétry 25, Brussel.',
     'hero-btn':'Reserveer een tafel',
-    'trust-rating':'4,2 op Google','trust-reviews':'514 Gastbeoordelingen',
+    'trust-rating':'4,2 op Google','trust-reviews':'500+ Gastbeoordelingen',
     'trust-hours':'Dagelijks open · Gesloten op donderdag','trust-service':'Ter plaatse &amp; afhalen',
     'imm-eyebrow':'Authentieke Kantonese Keuken &amp; Traditie',
     'imm-neon':'Kantonese',
