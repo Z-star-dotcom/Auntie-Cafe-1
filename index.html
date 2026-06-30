@@ -34,16 +34,27 @@
       font-family: 'Lora', serif; font-style: italic; font-size: 1.3rem;
       color: var(--rice); display: flex; align-items: center; gap: 0.6rem;
     }
-    .nav-logo-zh { font-family: 'Zhi Mang Xing', cursive; font-style: normal; font-size: 1rem; opacity: 0.55; }
+    .nav-logo-zh { font-family: 'Zhi Mang Xing', cursive; font-style: normal; font-size: 1rem; color: var(--rice); opacity: 0.55; }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
     .nav-links a { font-size: 0.78rem; color: rgba(240,232,208,0.65); letter-spacing: 0.06em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--rice); }
     .nav-cta {
-      background: var(--char); color: var(--rice);
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.65rem 1.5rem; transition: background 0.2s;
+      position: relative; display: inline-flex; align-items: baseline; gap: 0.4rem;
+      background: none; color: var(--rice);
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 1rem; font-weight: 500; letter-spacing: 0.02em;
+      padding: 0.5rem 0.1rem;
+      transition: color 0.25s;
     }
-    .nav-cta:hover { background: var(--lacquer); }
+    .nav-cta::after {
+      content: ''; position: absolute; left: 0; right: 100%; bottom: 0.3rem;
+      height: 2px; background: var(--rice);
+      transition: right 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-cta:hover { color: #fff; }
+    .nav-cta:hover::after { right: 0; }
+    .nav-cta .nav-logo-zh { transition: transform 0.3s; }
+    .nav-cta:hover .nav-logo-zh { transform: rotate(-6deg) scale(1.15); }
 
     /* ─── HERO ─── */
     .hero {
@@ -430,7 +441,7 @@
       <button class="lang-btn" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('nl')">NL</button>
     </div>
-    <a href="#full-menu" class="nav-cta" id="t-nav-cta">Menu</a>
+    <a href="#full-menu" class="nav-cta" id="t-nav-cta">Menu <span class="nav-logo-zh">餐牌</span></a>
   </div>
 </nav>
 
@@ -957,7 +968,7 @@ function switchTab(btn, cat) {
 
 const T = {
   en: {
-    'nav-home':'Home','nav-about':'About','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu',
+    'nav-home':'Home','nav-about':'About','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu <span class="nav-logo-zh">餐牌</span>',
     'hero-label':'Authentic Cantonese · Brussels · Since 2010',
     'hero-title':'Delicious food &amp;<br>wonderful eating experience',
     'hero-tagline':'We serve real Cantonese &amp; home-style food. Rue Grétry 25, Brussels.',
@@ -1009,7 +1020,7 @@ const T = {
     'foot-tagline':'Timeless recipes<br>to savor &amp; enjoy',
   },
   fr: {
-    'nav-home':'Accueil','nav-about':'À propos','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu',
+    'nav-home':'Accueil','nav-about':'À propos','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu <span class="nav-logo-zh">餐牌</span>',
     'hero-label':'Cuisine Cantonaise Authentique · Bruxelles · Depuis 2010',
     'hero-title':'Délicieux repas &amp;<br>une merveilleuse expérience culinaire',
     'hero-tagline':'Nous servons une vraie cuisine cantonaise et familiale. Rue Grétry 25, Bruxelles.',
@@ -1061,7 +1072,7 @@ const T = {
     'foot-tagline':'Recettes intemporelles<br>à savourer &amp; déguster',
   },
   nl: {
-    'nav-home':'Startpagina','nav-about':'Over ons','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'Menu',
+    'nav-home':'Startpagina','nav-about':'Over ons','nav-menu':'Menu','nav-contact':'Contact','nav-cta':'De Menu <span class="nav-logo-zh">餐牌</span>',
     'hero-label':'Authentieke Kantonese Keuken · Brussel · Sinds 2010',
     'hero-title':'Heerlijk eten &amp;<br>een prachtige eetbeleving',
     'hero-tagline':'Wij serveren echte Kantonese en huisgemaakte gerechten. Rue Grétry 25, Brussel.',
