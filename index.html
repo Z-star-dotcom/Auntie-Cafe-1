@@ -299,20 +299,34 @@
     .footer-links a:hover { color: rgba(240,232,208,0.6); }
 
     /* ─── LANGUAGE SWITCHER ─── */
-    .lang-switcher { display: flex; gap: 2px; align-items: center; margin-left: 0.8rem; }
+    .lang-switcher {
+      display: flex; gap: 3px; align-items: center; margin-left: 0.8rem;
+      padding: 3px; border-radius: 999px;
+      background: rgba(240,232,208,0.06); backdrop-filter: blur(6px);
+      border: 1px solid rgba(240,232,208,0.15);
+      animation: lang-switcher-breathe 3.6s ease-in-out infinite;
+    }
     .lang-btn {
-      background: transparent; border: 1px solid rgba(240,232,208,0.25);
+      background: transparent; border: 1px solid transparent;
+      border-radius: 999px;
       color: rgba(240,232,208,0.5); font-family: 'DM Sans', sans-serif;
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em;
-      padding: 0.38rem 0.55rem; cursor: pointer; transition: all 0.2s;
+      padding: 0.38rem 0.7rem; cursor: pointer; transition: all 0.25s;
     }
-    .lang-btn:first-child { border-radius: 2px 0 0 2px; }
-    .lang-btn:last-child  { border-radius: 0 2px 2px 0; }
-    .lang-btn:hover { color: var(--rice); border-color: rgba(240,232,208,0.5); box-shadow: 0 0 10px rgba(240,232,208,0.4); }
-    .lang-btn.active { background: var(--char); border-color: var(--char); color: var(--rice); animation: lang-glow-pulse 2.4s ease-in-out infinite; }
+    .lang-btn:hover { color: var(--rice); border-color: rgba(240,232,208,0.4); box-shadow: 0 0 10px rgba(240,232,208,0.4); transform: translateY(-1px) scale(1.08); }
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--char), var(--lacquer));
+      border-color: var(--char); color: var(--rice);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      animation: lang-glow-pulse 2.4s ease-in-out infinite;
+    }
     @keyframes lang-glow-pulse {
-      0%, 100% { box-shadow: 0 0 8px rgba(196,89,42,0.6), 0 0 16px rgba(196,89,42,0.25); }
-      50% { box-shadow: 0 0 16px rgba(196,89,42,0.9), 0 0 30px rgba(196,89,42,0.45); }
+      0%, 100% { box-shadow: 0 2px 6px rgba(0,0,0,0.3), 0 0 8px rgba(201,53,138,0.55), 0 0 16px rgba(201,53,138,0.2); }
+      50% { box-shadow: 0 2px 6px rgba(0,0,0,0.3), 0 0 16px rgba(201,53,138,0.85), 0 0 30px rgba(201,53,138,0.4); }
+    }
+    @keyframes lang-switcher-breathe {
+      0%, 100% { box-shadow: 0 0 0 rgba(240,232,208,0); }
+      50% { box-shadow: 0 0 14px rgba(240,232,208,0.18); }
     }
 
     /* ─── FULL MENU ─── */
