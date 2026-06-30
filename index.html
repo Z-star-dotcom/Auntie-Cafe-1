@@ -24,6 +24,22 @@
     img { display: block; max-width: 100%; }
     a { text-decoration: none; }
 
+    /* ─── DEMO WATERMARK ─── */
+    .demo-watermark {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .demo-watermark span {
+      font-family: 'DM Sans', sans-serif; font-weight: 700;
+      font-size: 28vw; letter-spacing: 0.05em;
+      color: rgba(15, 11, 8, 0.10);
+      transform: rotate(-30deg);
+      white-space: nowrap;
+      user-select: none;
+    }
+
     /* ─── NAV ─── */
     nav {
       position: absolute; top: 0; left: 0; right: 0; z-index: 100;
@@ -425,6 +441,8 @@
   </style>
 </head>
 <body>
+
+<div class="demo-watermark"><span>DEMO</span></div>
 
 <!-- NAV -->
 <nav>
